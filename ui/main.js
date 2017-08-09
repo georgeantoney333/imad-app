@@ -19,7 +19,7 @@ button.onclick = function()
 {
     
   //create a request
-  var req = new XMLHttpRequest();
+  var request = new XMLHttpRequest();
   
   
   //capture the request and store it in a variable
