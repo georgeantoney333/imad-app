@@ -46,8 +46,7 @@ button.onclick = function()
 };
 
 //submit name
-var nameInput = document.getElementById('name');
-var iname = nameInput.value;
+
 var submit = document.getElementById('submit_btn');
 submit.onclick = function()
 {
@@ -80,11 +79,10 @@ submit.onclick = function()
   };
   
   //make a request
+  var nameInput = document.getElementById('name');
+  var iname = nameInput.value;
   request.open('GET', 'http://georgeantony333.imad.hasura-app.io/submit-name?name=' + iname, true);
   request.send(null);
   
     //make a request to server and send the name
-    
-    
-   
 };
