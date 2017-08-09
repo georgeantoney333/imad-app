@@ -10,18 +10,35 @@ function moveRight(){
 img.onclick = function(){
     var interval = setInterval(moveRight,50);
 //  img.style.marginLeft = "100px";
-}
+};
 
 //counter code
 var button = document.getElementById('counter');
-var counter = 0;
-button.onclick = function() {
-  //make a request
+
+button.onclick = function()
+{
+    
+  //create a request
+  var req = new XMLHttpRequest();
+  
   
   //capture the request and store it in a variable
+  request.onreadystatechange = function()
+  {
+    if(request.readyState === XMLHttpRequest.DONE)
+    {
+        //Take an action
+        if(request.status === 200)
+        {
+            var counter = request.responseText;
+        }
+        
+    }
+    //Do Nothing
+  };
   
-  //renfer the variable in correct span
-  counter = counter + 1;
-  var span = document.getElementById('count');
-  span.innerHTML = counter.toString();
+  //make a request
+  request.open('GET', 'http://georgeantony333.imad.hasura-app.io/counter', true);
+  request.send(null);
+  
 };
