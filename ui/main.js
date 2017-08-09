@@ -51,17 +51,40 @@ var iname = nameInput.value;
 var submit = document.getElementById('submit_btn');
 submit.onclick = function()
 {
+     //create a request
+  var request = new XMLHttpRequest();
+  
+  
+  //capture the request and store it in a variable
+  request.onreadystatechange = function()
+  {
+    if(request.readyState === XMLHttpRequest.DONE)
+    {
+        //Take an action
+        if(request.status === 200)
+        {
+         //capture a list of names and render it as a list
+        var names = request.responseText;
+        names = JSON.parse(names);
+        var list = '';
+        for(var i = 0;i<names.length;i++)
+        {
+            list += '<li>' + names[i] + '</li>';
+        }
+        var ul = document.getElementById('namelist');
+        ul.innerHTML = list;
+        }
+        
+    }
+    //Do Nothing
+  };
+  
+  //make a request
+  request.open('GET', 'http://georgeantony333.imad.hasura-app.io/submit-name?name=' + iname, true);
+  request.send(null);
+  
     //make a request to server and send the name
     
     
-    //capture a list of names and render it as a list
-    var names = ['name1', 'name2', 'name3', 'name4'];
-    var list = '';
-    for(var i = 0;i<names.length;i++)
-    {
-        list += '<li>' + names[i] + '</li>';
-    }
-    var ul = document.getElementById('namelist');
-    ul.innerHTML = list;
-    
+   
 };
