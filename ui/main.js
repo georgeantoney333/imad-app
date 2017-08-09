@@ -11,3 +11,18 @@ img.onclick = function(){
     var interval = setInterval(moveRight,50);
 //  img.style.marginLeft = "100px";
 }
+
+//counter code
+var button = document.getElementById('counter');
+var counter = 0;
+button.onClick = function() {
+  //make a request
+  
+  //capture the request and store it in a variable
+  
+  //renfer the variable in correct span
+  counter = counter + 1;
+  var span = document.getElementById('count');
+  span.innerHTML = counter.toString();
+  
+};
