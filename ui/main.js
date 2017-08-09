@@ -80,8 +80,8 @@ submit.onclick = function()
   
   //make a request
   var nameInput = document.getElementById('name');
-  var iname = nameInput.value;
-  request.open('GET', 'http://georgeantony333.imad.hasura-app.io/submit-name?name=' + iname, true);
+  var name = nameInput.value;
+  request.open('GET', 'http://georgeantony333.imad.hasura-app.io/submit-name?name=' + name, true);
   request.send(null);
   
     //make a request to server and send the name
