@@ -49,7 +49,7 @@ app.get('/submit-name', function (req, res) { // /submit-name/name-xxx
    
 });
 
-app.get('/article/:articleName', function (req, res)
+app.get('/articles/:articleName', function (req, res)
 {
   //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
     pool.query("SELECT * FROM article WHERE title = '" + req.params.articleName + "'", function(err, result)
