@@ -49,6 +49,24 @@ app.get('/submit-name', function (req, res) { // /submit-name/name-xxx
    
 });
 
+function createTemplate (data) {
+    var title = data.title;
+    var date = data.date;
+    var heading = data.heading;
+    var content = data.content;
+    
+    var htmlTemplate = '
+    <html>
+      <body>
+        <title>
+            $(title)
+        </title>
+      </body>
+    </html>
+    ';
+    return htmlTemplate;
+}
+
 app.get('/articles/:articleName', function (req, res)
 {
   //res.sendFile(path.join(__dirname, 'ui', 'article-one.html'));
